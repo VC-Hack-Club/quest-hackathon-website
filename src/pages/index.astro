@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { twMerge } from "tailwind-merge";
+import Header from "../components/Header.astro";
+---
+
+<Layout title="Quest Hackathon">
+	<main class="flex flex-col w-full h-full">
+		<img
+			class="w-full h-full absolute top-0 left-0 object-cover -z-10"
+			role="presentation"
+			src="/art/processed-bright.jpg"
+			alt="banner image"
+			fetchpriority="high"
+		/>
+		<div class="fixed top-0 left-0 p-4 pointer-events-none">
+			<div class="flex gap-6">
+				<Header />
+			</div>
+		</div>
+		<h1 class="text-6xl sm:text-8xl m-auto font-bold">
+			<p
+				class={twMerge(
+					"bg-gradient-to-tl bg-clip-text text-transparent",
+					"text-6xl sm:text-8xl from-purple-700 to-blue-600"
+				)}
+			>
+				Quest
+			</p>
+			Hackathon
+		</h1>
+	</main>
+</Layout>
