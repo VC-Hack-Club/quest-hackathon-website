@@ -1,33 +1,88 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { twMerge } from "tailwind-merge";
-import Header from "../components/Header.astro";
+// import Header from "../components/Header.astro";
 ---
 
-<Layout title="Quest Hackathon">
-	<main class="flex flex-col w-full h-full">
-		<img
-			class="w-full h-full absolute top-0 left-0 object-cover -z-10"
-			role="presentation"
-			src="/art/processed-bright.jpg"
-			alt="banner image"
-			fetchpriority="high"
-		/>
-		<div class="fixed top-0 left-0 p-4 pointer-events-none">
-			<div class="flex gap-6">
-				<Header />
+<Layout className="overflow-hidden" title="Quest Hackathon">
+	<code id="background-code" class="overlay truncate -z-20"></code>
+	<!-- <div class="overlay dotted-grid w-full h-full"></div> -->
+	<main class="h-full overflow-y-auto overflow-x-hidden">
+		<!-- Intro page -->
+		<div class="flex page-content">
+			<!-- Intro text -->
+			<h1
+				class="m-auto rotate-90 -translate-x-1/4 -translate-y-10 sm:transform-none"
+			>
+				<div class="w-fit bg-primary">
+					<p class="text-bg">Quest</p>
+				</div>
+				Hackathon
+			</h1>
+		</div>
+		<!-- What -->
+		<div class="page-content p-20 backdrop-invert">
+			<h2 class="text-bg mb-8">What?</h2>
+			<p class="text-bg text-2xl">
+				Quest Hackathon is a day-long innovative experience for high school
+				students hosted by the VC hack club.
+			</p>
+		</div>
+		<!-- Where & When -->
+		<div
+			class="page-content p-20 backdrop-sepia flex justify-between gap-8"
+		>
+			<div class="flex flex-col">
+				<div>
+					<h2 class="text-primary mb-8">Where?</h2>
+					<p class="text-primary text-2xl">Valley Christian High School.</p>
+				</div>
+				<iframe
+					class="m-auto rounded-3xl shadow-xl"
+					width="420"
+					height="420"
+					src="https://www.openstreetmap.org/export/embed.html?bbox=-118.11082720756532%2C33.86719073815956%2C-118.09795260429384%2C33.873827305867806&layer=mapnik"
+					style="border: 1px solid black"
+				>
+				</iframe>
+			</div>
+			<div>
+				<h2 class="text-primary mb-8">When?</h2>
+				<p class="text-primary text-2xl">9am - 9pm on April ___</p>
 			</div>
 		</div>
-		<h1 class="text-6xl sm:text-8xl m-auto font-bold">
-			<p
-				class={twMerge(
-					"bg-gradient-to-tl bg-clip-text text-transparent",
-					"text-6xl sm:text-8xl from-purple-700 to-blue-600"
-				)}
-			>
-				Quest
-			</p>
-			Hackathon
-		</h1>
+		<!-- Prizes -->
+		<div class="page-content p-20 backdrop-invert backdrop-contrast-50">
+			<h2 class="text-bg mb-8">Prizes</h2>
+		</div>
+		<!-- Sponsors -->
+		<div class="page-content p-20">
+			<h2 class="text-primary mb-8">Sponsors</h2>
+		</div>
 	</main>
 </Layout>
+
+<script>
+	const backgroundCode = document.querySelector("#background-code");
+	if (backgroundCode && "innerText" in backgroundCode) {
+		backgroundCode.innerText = document.documentElement.innerHTML;
+	}
+</script>
+
+<style>
+	@keyframes scrolldown {
+		from {
+			transform: translateY(0%);
+		}
+		to {
+			transform: translateY(-100%);
+		}
+	}
+
+	#background-code {
+		animation-name: scrolldown;
+		animation-iteration-count: infinite;
+		animation-direction: initial;
+		animation-duration: 120s;
+		animation-timing-function: linear;
+	}
+</style>
