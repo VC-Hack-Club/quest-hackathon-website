@@ -6,7 +6,7 @@ module.exports = {
       colors: {
         primary: "var(--primary)",
         bg: "var(--bg)",
-      }
+      },
     },
   },
   plugins: [],

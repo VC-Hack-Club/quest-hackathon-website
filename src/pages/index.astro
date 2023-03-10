@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Iframe from "../components/Iframe.astro";
+import Button from "../components/Button.astro";
 // import Header from "../components/Header.astro";
 ---
 
@@ -8,60 +10,76 @@ import Layout from "../layouts/Layout.astro";
 	<!-- <div class="overlay dotted-grid w-full h-full"></div> -->
 	<main class="h-full overflow-y-auto overflow-x-hidden">
 		<!-- Intro page -->
-		<div class="flex page-content">
+		<div class="flex h-screen">
 			<!-- Intro text -->
-			<h1
+			<div
 				class="m-auto rotate-90 -translate-x-1/4 -translate-y-10 sm:transform-none"
 			>
-				<div class="w-fit bg-primary">
-					<p class="text-bg">Quest</p>
-				</div>
-				Hackathon
-			</h1>
+				<h1 class="text-8xl text-bg bg-primary w-fit">Quest</h1>
+				<h1 class="text-8xl m-auto">Hackathon</h1>
+			</div>
 		</div>
 		<!-- What -->
-		<div class="page-content p-20 backdrop-invert">
+		<div class="page-content backdrop-invert">
 			<h2 class="text-bg mb-8">What?</h2>
 			<p class="text-bg text-2xl">
-				Quest Hackathon is a day-long innovative experience for high school
-				students hosted by the VC hack club.
+				<span class="bg-bg text-primary">Quest</span> Hackathon is a day long innovative
+				experience.
 			</p>
 		</div>
 		<!-- Where & When -->
 		<div
-			class="page-content p-20 backdrop-sepia flex justify-between gap-8"
+			class="page-content backdrop-sepia flex flex-col sm:flex-row gap-8 justify-between"
 		>
-			<div class="flex flex-col">
-				<div>
-					<h2 class="text-primary mb-8">Where?</h2>
-					<p class="text-primary text-2xl">Valley Christian High School.</p>
-				</div>
-				<iframe
-					class="m-auto rounded-3xl shadow-xl"
-					width="420"
-					height="420"
-					src="https://www.openstreetmap.org/export/embed.html?bbox=-118.11082720756532%2C33.86719073815956%2C-118.09795260429384%2C33.873827305867806&layer=mapnik"
-					style="border: 1px solid black"
-				>
-				</iframe>
+			<div class="flex flex-col gap-8">
+				<h2 class="text-primary">Where?</h2>
+				<p>
+					<u>Valley Christian Schools</u><br />
+					100 Skyway Dr #130, San Jose, CA 95111
+				</p>
+				<Iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.7953807465615!2d-121.826706!3d37.276279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808e32115bc6dca5%3A0xcb42dd40acc4e1db!2sValley%20Christian%20Schools!5e0!3m2!1sen!2sus!4v1678422508028!5m2!1sen!2sus"
+				/>
 			</div>
-			<div>
-				<h2 class="text-primary mb-8">When?</h2>
-				<p class="text-primary text-2xl">9am - 9pm on April ___</p>
+			<div class="flex flex-col gap-8 items-end">
+				<h2>When?</h2>
+				<p>9am - 9pm on April ___</p>
+				<a
+					class="ml-auto inline-block"
+					href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=Mmd2Y2MxZnZsMGYxdjY3ZnFrYTNhZTRiYzUgY181MGFlNGY4OTk1N2Y3OTY2OWZjMDdkNzUyMDAyNDQ0OWZjOWVmNDgwODI1NDkwNDdkZDBhZTdmMGZiYTNlMDlhQGc&tmsrc=c_50ae4f89957f79669fc07d7520024449fc9ef48082549047dd0ae7f0fba3e09a%40group.calendar.google.com"
+				>
+					<Button text="Add to Google Calendar" />
+				</a>
+				<full-calendar
+					class="w-20 h-20"
+					shadow
+					options={JSON.stringify({
+						headerToolbar: {
+							left: "prev,next today",
+							center: "title",
+							right: "dayGridMonth,dayGridWeek,dayGridDay",
+						},
+					})}></full-calendar>
+				<!-- <Iframe
+					className="place-content-end"
+					src="https://calendar.google.com/calendar/embed?src=c_50ae4f89957f79669fc07d7520024449fc9ef48082549047dd0ae7f0fba3e09a%40group.calendar.google.com&ctz=America%2FLos_Angeles"
+				/> -->
 			</div>
 		</div>
 		<!-- Prizes -->
-		<div class="page-content p-20 backdrop-invert backdrop-contrast-50">
+		<div class="page-content backdrop-invert backdrop-contrast-50">
 			<h2 class="text-bg mb-8">Prizes</h2>
 		</div>
 		<!-- Sponsors -->
-		<div class="page-content p-20">
+		<div class="page-content">
 			<h2 class="text-primary mb-8">Sponsors</h2>
 		</div>
 	</main>
 </Layout>
 
 <script>
+	import "@fullcalendar/web-component/global";
+
 	const backgroundCode = document.querySelector("#background-code");
 	if (backgroundCode && "innerText" in backgroundCode) {
 		backgroundCode.innerText = document.documentElement.innerHTML;

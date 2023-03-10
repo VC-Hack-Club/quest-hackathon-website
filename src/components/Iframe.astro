@@ -1,0 +1,18 @@
+---
+import { twMerge } from "tailwind-merge"
+
+interface Props {
+  src: string;
+  className?: string;
+}
+
+const { src, className } = Astro.props;
+---
+
+<iframe
+  class={twMerge("hard-shadow w-[240px] h-[240px] md:w-[400px] md:h-[400px]", className)}
+  src={src}
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+>
+</iframe>

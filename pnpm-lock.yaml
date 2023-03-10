@@ -2,6 +2,9 @@ lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/tailwind': ^3.1.0
+  '@fullcalendar/core': ^6.1.4
+  '@fullcalendar/daygrid': ^6.1.4
+  '@fullcalendar/web-component': ^6.1.4
   astro: ^2.0.18
   husky: ^8.0.3
   lint-staged: ^13.1.2
@@ -14,6 +17,9 @@ specifiers:
 
 dependencies:
   '@astrojs/tailwind': 3.1.0_o5pmjyiyxefuvlue2yryq6hdmq
+  '@fullcalendar/core': 6.1.4
+  '@fullcalendar/daygrid': 6.1.4_@fullcalendar+core@6.1.4
+  '@fullcalendar/web-component': 6.1.4_@fullcalendar+core@6.1.4
   astro: 2.1.0
   tailwind-merge: 1.10.0
   tailwindcss: 3.2.7
@@ -592,6 +598,28 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fullcalendar/core/6.1.4:
+    resolution: {integrity: sha512-ZDD0Owv0LezAk14nsRNaOc9nbowItGmT0mnjOhEw+L6B8P5eads8yYaNA9itn70MWoOjiAG8xqD7Yk1iJGxqgQ==}
+    dependencies:
+      preact: 10.13.1
+    dev: false
+
+  /@fullcalendar/daygrid/6.1.4_@fullcalendar+core@6.1.4:
+    resolution: {integrity: sha512-X0QWEiA/hT8GYiQzmXt9DlZTWaQbNtBHBXGtaMNcVXbGHDCzLoWTHrde/jABGfr/i2+d9sLUO4oTtwz2HVpNtQ==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.4
+    dependencies:
+      '@fullcalendar/core': 6.1.4
+    dev: false
+
+  /@fullcalendar/web-component/6.1.4_@fullcalendar+core@6.1.4:
+    resolution: {integrity: sha512-wapGaMhz85cPW3SSu3z0jHWPEW714t7qRYSJpV+whKD/fjb/EHpB8E/xv6OAgD/+/FgvsuF9+Yhgy1EK8uW9TQ==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.4
+    dependencies:
+      '@fullcalendar/core': 6.1.4
+    dev: false
 
   /@jridgewell/gen-mapping/0.1.1:
     resolution: {integrity: sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w==}
@@ -3475,6 +3503,10 @@ packages:
       nanoid: 3.3.4
       picocolors: 1.0.0
       source-map-js: 1.0.2
+    dev: false
+
+  /preact/10.13.1:
+    resolution: {integrity: sha512-KyoXVDU5OqTpG9LXlB3+y639JAGzl8JSBXLn1J9HTSB3gbKcuInga7bZnXLlxmK94ntTs1EFeZp0lrja2AuBYQ==}
     dev: false
 
   /preferred-pm/3.0.3:
