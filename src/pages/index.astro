@@ -6,7 +6,7 @@ import Button from "../components/Button.astro";
 ---
 
 <Layout className="overflow-hidden" title="Quest Hackathon">
-	<code id="background-code" class="overlay truncate -z-20"></code>
+	<code id="background-code" class="overlay truncate -z-20 filter blur-sm"></code>
 	<!-- <div class="overlay dotted-grid w-full h-full"></div> -->
 	<main class="h-full overflow-y-auto overflow-x-hidden">
 		<!-- Intro page -->
@@ -21,7 +21,7 @@ import Button from "../components/Button.astro";
 		</div>
 		<!-- What -->
 		<div class="page-content backdrop-invert">
-			<h2 class="text-bg mb-8">What?</h2>
+			<h2 class="text-bg mb-8" id="what-header">What?</h2>
 			<p class="text-bg text-2xl">
 				<span class="bg-bg text-primary">Quest</span> Hackathon is a day long innovative
 				experience.
@@ -73,6 +73,26 @@ import Button from "../components/Button.astro";
 		<!-- Sponsors -->
 		<div class="page-content">
 			<h2 class="text-primary mb-8">Sponsors</h2>
+		</div>
+		<div class="page-content backdrop-invert backdrop-contrast-50">
+			<h2 class="text-primary mb-8">Resources</h2>
+		</div>
+		<div class="page-content">
+			<h2 class="text-primary mb-8">Schedule</h2>
+		</div>
+		<div class="page-content backdrop-invert backdrop-contrast-50">
+			<h2 class="text-primary mb-8">Goals</h2>
+		</div>
+		<div class="page-content">
+			<h2 class="text-primary mb-8">Register</h2>
+		</div>
+		<div class="page-content">
+			<h2 class="text-primary mb-8">Contact</h2>
+			
+			<div class="flex flex-col gap-8">
+				<h3 class="text-2xl">Email</h3>
+				<a href="mailto:vchackclub@gmail.com">VC Hack Club</a>
+			</div>
 		</div>
 	</main>
 </Layout>
