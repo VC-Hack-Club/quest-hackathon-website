@@ -82,7 +82,7 @@ import Button from "../components/Button.astro";
 
 	const backgroundCode = document.querySelector("#background-code");
 	if (backgroundCode && "innerText" in backgroundCode) {
-		backgroundCode.innerText = document.documentElement.innerHTML;
+		backgroundCode.innerText = `\n\n\n`.repeat(10) + document.documentElement.innerHTML;
 	}
 </script>
 
@@ -99,8 +99,9 @@ import Button from "../components/Button.astro";
 	#background-code {
 		animation-name: scrolldown;
 		animation-iteration-count: infinite;
-		animation-direction: initial;
+		animation-direction: normal;
 		animation-duration: 120s;
 		animation-timing-function: linear;
+		animation-fill-mode: forwards;
 	}
 </style>
